@@ -6,14 +6,15 @@ exports.run = (client, message, [...prizes]) => {
     if (!leadership) {
         message.channel.send(`You're not permitted to use this command.`);
     } else {
+        const prize = prizes.join(" ");
+        const list = ( prize.toLowerCase() === "perry portrait" ?
+            config.entrants.filter(entrant => entrant.portraits === true) :
+            config.entrants.filter(entrant => entrant.goodies === true)
+        );
 
-        const list = config.entrants;
         const num = Math.floor(Math.random() * list.length);
 
-        const winner = list[num];
-
-        const prize = prizes.join(" ");
-
+        const winner = list[num].name;
 
         message.channel.send(`Congrats, ${winner}! You've won ${prize}!`);
     }

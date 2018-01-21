@@ -4,7 +4,7 @@ exports.run = (client, message) => {
 
     const entrants = config.entrants.map(entrant => ({
             name: "-",
-            value: entrant,
+            value: entrant.name,
             inline: true
         })
     );
