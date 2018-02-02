@@ -7,7 +7,7 @@ exports.run = (client, message, [...prizes]) => {
         message.channel.send(`You're not permitted to use this command.`);
     } else {
         const prize = prizes.join(" ");
-        const list = ( prize.toLowerCase() === "perry portrait" ?
+        const list = ( prize.toLowerCase() === "portrait" ?
             config.entrants.filter(entrant => entrant.portraits === true) :
             config.entrants.filter(entrant => entrant.goodies === true)
         );
